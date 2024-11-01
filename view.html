@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Paste</title>
+</head>
+<body>
+  <h1>Conteúdo do Paste</h1>
+  <pre id="pasteContent"></pre>
+
+  <script>
+    // Pega o ID do paste da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const pasteId = urlParams.get('id');
+    
+    // Carrega o conteúdo do Local Storage
+    const content = localStorage.getItem(`paste_${pasteId}`);
+    document.getElementById('pasteContent').innerText = content || 'Paste não encontrado!';
+  </script>
+</body>
+</html>
